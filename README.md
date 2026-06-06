@@ -78,23 +78,25 @@ Install the pipeline requirements
 
 
 ## 📖 Command Line Options
+Command ```venv/bin/python3 -m main``` 
 
---url (String, Default: None)
+Flags
+```--url (String, Default: None)```
 The exact YouTube URL you want to download and process. If this option is omitted, the script automatically defaults to local directory batch processing.
 
---media-dir (Path, Default: ./data)
+```--media-dir (Path, Default: ./data)```
 The root directory to recursively scan for local media files. This parameter is active only when --url is NOT provided.
 
---download_path (Path, Default: ./data)
+```--download_path (Path, Default: ./data)```
 The destination directory where yt-dlp will save downloaded YouTube videos.
 
---audio-only (Flag, Default: False)
+```--audio-only (Flag, Default: False)```
 Skips video extraction and recombination. Outputs only the isolated .wav stems.
 
--v, --verbose (Flag, Default: False)
+```-v, --verbose (Flag, Default: False)```
 Enables step-by-step debug logging, outputting exact timestamps and execution metrics.
 
--h, --help (Command, Default: N/A)
+```-h, --help (Command, Default: N/A)```
 Shows the help menu and parameter definitions.
 
 ## 💻 Usage Examples
@@ -104,25 +106,24 @@ Make sure your virtual environment is active (source venv/bin/activate) before r
 Local Recursive Batch Processing (No Downloading)
 Scans the default directory (./data) and all its subdirectories, automatically processing every video and audio file it finds without downloading anything new.
 ```
-python main.py
+venv/bin/python3 -m main.py
 ```
-
 
 Local Batch Processing with Custom Directory
 Recursively crawls a specific local folder and its subfolders to process all media files, enabling verbose logging to track performance.
 ```
-python main.py --media-dir "/path/to/your/media/folder" -v
+venv/bin/python3 -m main.py --media-dir "/path/to/your/media/folder" -v
 ```
 
 Local Audio-Only Batch Processing
 Recursively scans the local directory, processes both video and audio files, but forces the script to treat everything as audio-only (skipping video stream recombination and outputting only the vocal/instrumental stems).
 ```
-python main.py --media-dir "./data" --audio-only
+venv/bin/python3 -m main.py --media-dir "./data" --audio-only
 ```
 Single URL Download and Recombine Video
 Downloads a fresh YouTube video, splits the audio, and outputs a final video with the vocals removed.
 ```
-python main.py --url "https://www.youtube.com/watch?v=VIDEO_ID"
+venv/bin/python3 -m main.py --url "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
 
