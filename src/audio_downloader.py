@@ -14,12 +14,16 @@ class AudioDownloader:
         # Output template
         outtmpl = os.path.join(download_path, '%(title)s/%(title)s.%(ext)s')
         
-        # Base options
+       # Base options
         base_opts = {
             'outtmpl': outtmpl,
             'quiet': True,
+            'js_runtimes': {'node': {}},
+            'sleep_interval': 5,
+            'max_sleep_interval': 10,
+            'remote_components': ['ejs:github'],
         }
-        
+
         # Configure based on audio_only parameter
         if audio_only:
             # Audio only - extract MP3
@@ -43,7 +47,7 @@ class AudioDownloader:
                     'preferedformat': 'mp4',
                 }],
             }
-        
+
         self.ydl = yt_dlp.YoutubeDL(self.ydl_opts)
 
     def download_audio(self, url):
@@ -78,4 +82,3 @@ class AudioDownloader:
 if __name__ == "__main__":
     downloader = AudioDownloader(audio_only=False)
     downloader.download_audio(url)
-    print("Audio downloaded successfully.")
