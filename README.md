@@ -103,19 +103,28 @@ Make sure your virtual environment is active (source venv/bin/activate) before r
 
 Local Recursive Batch Processing (No Downloading)
 Scans the default directory (./data) and all its subdirectories, automatically processing every video and audio file it finds without downloading anything new.
+```
 python main.py
+```
+
 
 Local Batch Processing with Custom Directory
 Recursively crawls a specific local folder and its subfolders to process all media files, enabling verbose logging to track performance.
+```
 python main.py --media-dir "/path/to/your/media/folder" -v
+```
 
 Local Audio-Only Batch Processing
 Recursively scans the local directory, processes both video and audio files, but forces the script to treat everything as audio-only (skipping video stream recombination and outputting only the vocal/instrumental stems).
+```
 python main.py --media-dir "./data" --audio-only
-
+```
 Single URL Download and Recombine Video
 Downloads a fresh YouTube video, splits the audio, and outputs a final video with the vocals removed.
+```
 python main.py --url "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
 
 ## 🔧 Troubleshooting
 
